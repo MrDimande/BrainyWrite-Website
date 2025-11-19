@@ -1,6 +1,6 @@
-# BMC Pro Services
+# BrainyWrite - Assessoria Académica & Criativa
 
-Um website moderno, futurístico e elegante para consultoria empresarial em Moçambique. Desenvolvido com React, Vite e Tailwind CSS, oferecendo uma experiência de usuário excepcional com design glassmorphism e animações suaves.
+Um website moderno, futurístico e elegante para consultoria académica e criatividade em Moçambique. Desenvolvido com React, Vite e Tailwind CSS, oferecendo uma experiência de usuário excepcional com design glassmorphism e animações suaves.
 
 ## 🚀 Características
 
