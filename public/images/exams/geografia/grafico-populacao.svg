@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <rect width="400" height="300" fill="#1a1a2e"/>
+  <!-- Title -->
+  <text x="200" y="30" fill="#fbbf24" font-size="14" font-family="Arial" text-anchor="middle" font-weight="bold">População por Região (milhões)</text>
+  <!-- Axes -->
+  <line x1="60" y1="250" x2="360" y2="250" stroke="#fbbf24" stroke-width="2"/>
+  <line x1="60" y1="50" x2="60" y2="250" stroke="#fbbf24" stroke-width="2"/>
+  <!-- Bars -->
+  <rect x="80" y="100" width="50" height="150" fill="#22c55e"/>
+  <rect x="150" y="130" width="50" height="120" fill="#3b82f6"/>
+  <rect x="220" y="80" width="50" height="170" fill="#ef4444"/>
+  <rect x="290" y="160" width="50" height="90" fill="#a855f7"/>
+  <!-- Labels -->
+  <text x="105" y="270" fill="#fff" font-size="10" font-family="Arial" text-anchor="middle">Norte</text>
+  <text x="175" y="270" fill="#fff" font-size="10" font-family="Arial" text-anchor="middle">Centro</text>
+  <text x="245" y="270" fill="#fff" font-size="10" font-family="Arial" text-anchor="middle">Sul</text>
+  <text x="315" y="270" fill="#fff" font-size="10" font-family="Arial" text-anchor="middle">Maputo</text>
+  <!-- Values -->
+  <text x="105" y="95" fill="#fff" font-size="10" font-family="Arial" text-anchor="middle">8.5</text>
+  <text x="175" y="125" fill="#fff" font-size="10" font-family="Arial" text-anchor="middle">6.2</text>
+  <text x="245" y="75" fill="#fff" font-size="10" font-family="Arial" text-anchor="middle">9.8</text>
+  <text x="315" y="155" fill="#fff" font-size="10" font-family="Arial" text-anchor="middle">4.1</text>
+</svg>

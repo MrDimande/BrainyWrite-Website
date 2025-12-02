@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <rect width="400" height="300" fill="#1a1a2e"/>
+  <!-- Title -->
+  <text x="200" y="30" fill="#fbbf24" font-size="14" font-family="Arial" text-anchor="middle" font-weight="bold">Circuito em Série</text>
+  <!-- Wire -->
+  <path d="M80,150 L120,150 L120,80 L280,80 L280,150 L320,150 L320,220 L80,220 L80,150"
+        fill="none" stroke="#fbbf24" stroke-width="3"/>
+  <!-- Battery -->
+  <line x1="70" y1="140" x2="70" y2="160" stroke="#22c55e" stroke-width="4"/>
+  <line x1="90" y1="130" x2="90" y2="170" stroke="#22c55e" stroke-width="4"/>
+  <text x="80" y="190" fill="#fff" font-size="10" font-family="Arial" text-anchor="middle">V = 12V</text>
+  <!-- Resistor 1 -->
+  <path d="M150,80 L160,70 L170,90 L180,70 L190,90 L200,70 L210,80" fill="none" stroke="#ef4444" stroke-width="2"/>
+  <text x="180" y="60" fill="#fff" font-size="10" font-family="Arial" text-anchor="middle">R₁ = 4Ω</text>
+  <!-- Resistor 2 -->
+  <path d="M280,120 L290,110 L300,130 L310,110 L320,130 L330,110 L340,120" fill="none" stroke="#3b82f6" stroke-width="2" transform="rotate(90 310 120)"/>
+  <text x="350" y="150" fill="#fff" font-size="10" font-family="Arial">R₂ = 2Ω</text>
+  <!-- Current arrow -->
+  <path d="M200,220 L230,220 M220,210 L230,220 L220,230" fill="none" stroke="#a855f7" stroke-width="2"/>
+  <text x="215" y="250" fill="#a855f7" font-size="10" font-family="Arial" text-anchor="middle">I = ?</text>
+  <!-- Formula -->
+  <text x="200" y="280" fill="#22c55e" font-size="12" font-family="Arial" text-anchor="middle">I = V / R_total</text>
+</svg>

@@ -1,9 +1,9 @@
-import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { X, Send, Mail, MessageSquare, User } from 'lucide-react'
+import { Mail, MessageSquare, Send, User, X } from 'lucide-react'
+import { useState } from 'react'
 
 interface ContactFormProps {
   isOpen: boolean
@@ -69,6 +69,7 @@ export function ContactForm({ isOpen, onClose }: ContactFormProps) {
               variant="ghost"
               size="icon"
               onClick={onClose}
+              aria-label="Close contact form"
             >
               <X className="h-4 w-4" />
             </Button>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <rect width="400" height="300" fill="#1a1a2e"/>
+  <!-- Simplified Mozambique outline -->
+  <path d="M200,30 L230,50 L250,80 L260,120 L270,160 L265,200 L250,230 L230,260 L200,280 L170,260 L150,230 L140,200 L135,160 L140,120 L150,80 L170,50 Z"
+        fill="#22c55e" stroke="#fbbf24" stroke-width="2"/>
+  <!-- Capital marker -->
+  <circle cx="200" cy="200" r="8" fill="#ef4444"/>
+  <text x="215" y="205" fill="#fff" font-size="12" font-family="Arial">Maputo</text>
+  <!-- Ocean -->
+  <text x="300" y="150" fill="#3b82f6" font-size="14" font-family="Arial">Oceano</text>
+  <text x="300" y="170" fill="#3b82f6" font-size="14" font-family="Arial">Índico</text>
+  <!-- Title -->
+  <text x="200" y="25" fill="#fbbf24" font-size="16" font-family="Arial" text-anchor="middle" font-weight="bold">Moçambique</text>
+  <!-- Compass -->
+  <circle cx="60" cy="60" r="25" fill="none" stroke="#fbbf24" stroke-width="1"/>
+  <text x="60" y="45" fill="#fff" font-size="12" font-family="Arial" text-anchor="middle">N</text>
+  <text x="60" y="82" fill="#fff" font-size="10" font-family="Arial" text-anchor="middle">S</text>
+</svg>

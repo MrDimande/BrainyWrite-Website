@@ -1,13 +1,14 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-hot-toast'
-import { 
-  ArrowRight, 
-  ArrowLeft, 
-  CheckCircle, 
-  FileText, 
-  Calendar, 
+import api from '../config/api'
+import {
+  ArrowRight,
+  ArrowLeft,
+  CheckCircle,
+  FileText,
+  Calendar,
   DollarSign,
   Shield,
   Clock,
@@ -21,7 +22,11 @@ const Cotacao = () => {
   const [currentStep, setCurrentStep] = useState(1)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [calculatedPrice, setCalculatedPrice] = useState(0)
-  const { register, handleSubmit, formState: { errors }, watch, setValue } = useForm()
+  const { register, handleSubmit, formState: { errors }, watch, setValue, reset } = useForm({
+    defaultValues: {
+      additionalServices: []
+    }
+  })
 
   const totalSteps = 4
   const watchedFields = watch()
@@ -45,7 +50,7 @@ const Cotacao = () => {
       const deadlineDate = new Date(deadline)
       const today = new Date()
       const daysDiff = Math.ceil((deadlineDate - today) / (1000 * 60 * 60 * 24))
-      
+
       if (daysDiff < 7) basePrice *= 1.5 // 50% de acréscimo
       else if (daysDiff < 14) basePrice *= 1.3 // 30% de acréscimo
       else if (daysDiff < 30) basePrice *= 1.1 // 10% de acréscimo
@@ -64,9 +69,9 @@ const Cotacao = () => {
   }
 
   // Recalcular quando campos mudarem
-  useState(() => {
+  useEffect(() => {
     calculatePrice()
-  }, [watchedFields])
+  }, [watchedFields.pages, watchedFields.academicLevel, watchedFields.deadline, watchedFields.additionalServices])
 
   const workTypes = [
     'Monografia',
@@ -130,14 +135,94 @@ const Cotacao = () => {
 
   const onSubmit = async (data) => {
     setIsSubmitting(true)
-    
+
     try {
-      // Simular envio do formulário
-      await new Promise(resolve => setTimeout(resolve, 2000))
-      
-      toast.success('Cotação solicitada com sucesso! Entraremos em contato em breve.')
+      // Garantir que additionalServices seja um array
+      let additionalServicesArray = []
+      if (Array.isArray(data.additionalServices)) {
+        additionalServicesArray = data.additionalServices
+      } else if (data.additionalServices) {
+        // Se for string ou objeto, converter para array
+        additionalServicesArray = [data.additionalServices]
+      }
+
+      // Preparar dados para envio
+      const formData = {
+        name: data.name || '',
+        email: data.email || '',
+        phone: data.phone || '',
+        institution: data.institution || '',
+        workType: data.workType || '',
+        category: data.category || '',
+        pages: parseInt(data.pages) || 10,
+        deadline: data.deadline || '',
+        academicLevel: data.academicLevel || '',
+        formatting: data.formatting || '',
+        language: data.language || '',
+        title: data.title || '',
+        description: data.description || '',
+        hasReferences: data.hasReferences || 'nao',
+        additionalServices: additionalServicesArray,
+        calculatedPrice: calculatedPrice || 0,
+      }
+
+      console.log('Enviando dados:', formData)
+
+      const response = await fetch(api.quote, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      // Verificar se a resposta é JSON válida
+      let result
+      try {
+        result = await response.json()
+      } catch (jsonError) {
+        throw new Error('Resposta inválida do servidor')
+      }
+
+      if (!response.ok) {
+        throw new Error(result.error || `Erro ${response.status}: ${response.statusText}`)
+      }
+
+      toast.success(result.message || 'Cotação solicitada com sucesso! Entraremos em contato em breve.')
+
+      // Resetar formulário e voltar para o primeiro passo após 2 segundos
+      setTimeout(() => {
+        reset({
+          name: '',
+          email: '',
+          phone: '',
+          institution: '',
+          workType: '',
+          category: '',
+          pages: 10,
+          deadline: '',
+          academicLevel: '',
+          formatting: '',
+          language: '',
+          title: '',
+          description: '',
+          hasReferences: 'nao',
+          additionalServices: []
+        })
+        setCurrentStep(1)
+        setCalculatedPrice(0)
+      }, 2000)
     } catch (error) {
-      toast.error('Erro ao solicitar cotação. Tente novamente.')
+      console.error('Error submitting quote:', error)
+
+      // Mensagens de erro mais específicas
+      if (error.message.includes('Failed to fetch') || error.message.includes('NetworkError')) {
+        toast.error('Não foi possível conectar ao servidor. Verifique se o servidor está rodando em http://localhost:5000')
+      } else if (error.message.includes('CORS')) {
+        toast.error('Erro de CORS. Verifique as configurações do servidor.')
+      } else {
+        toast.error(error.message || 'Erro ao solicitar cotação. Tente novamente.')
+      }
     } finally {
       setIsSubmitting(false)
     }
@@ -164,7 +249,7 @@ const Cotacao = () => {
               Solicitar <span className="gradient-text">Cotação</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed font-poppins">
-              Preencha o formulário abaixo e receba uma cotação personalizada 
+              Preencha o formulário abaixo e receba uma cotação personalizada
               para seu projeto acadêmico em até 24 horas.
             </p>
           </motion.div>
@@ -178,8 +263,8 @@ const Cotacao = () => {
             {[...Array(totalSteps)].map((_, index) => (
               <div key={index} className="flex items-center">
                 <div className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold ${
-                  index + 1 <= currentStep 
-                    ? 'bg-gradient-to-r from-primary-purple to-primary-blue text-white' 
+                  index + 1 <= currentStep
+                    ? 'bg-gradient-to-r from-primary-purple to-primary-blue text-white'
                     : 'bg-white/10 text-white/50'
                 }`}>
                   {index + 1}
@@ -212,7 +297,7 @@ const Cotacao = () => {
                   className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8"
                 >
                   <h2 className="text-3xl font-bold text-white mb-8">Informações Pessoais</h2>
-                  
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-white font-medium mb-2">Nome Completo *</label>
@@ -233,7 +318,7 @@ const Cotacao = () => {
                     <div>
                       <label className="block text-white font-medium mb-2">Email *</label>
                       <input
-                        {...register('email', { 
+                        {...register('email', {
                           required: 'Email é obrigatório',
                           pattern: {
                             value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
@@ -255,7 +340,7 @@ const Cotacao = () => {
                     <div>
                       <label className="block text-white font-medium mb-2">Telefone/WhatsApp *</label>
                       <input
-                        {...register('phone', { 
+                        {...register('phone', {
                           required: 'Telefone é obrigatório',
                           pattern: {
                             value: /^(\+258|258)?[0-9]{9}$/,
@@ -305,7 +390,7 @@ const Cotacao = () => {
                   className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8"
                 >
                   <h2 className="text-3xl font-bold text-white mb-8">Detalhes do Trabalho</h2>
-                  
+
                   <div className="space-y-6">
                     <div>
                       <label className="block text-white font-medium mb-2">Tipo de Trabalho *</label>
@@ -349,7 +434,7 @@ const Cotacao = () => {
                         Número de Páginas: {watchedFields.pages || 10}
                       </label>
                       <input
-                        {...register('pages', { 
+                        {...register('pages', {
                           required: 'Número de páginas é obrigatório',
                           min: { value: 10, message: 'Mínimo 10 páginas' },
                           max: { value: 300, message: 'Máximo 300 páginas' }
@@ -375,7 +460,7 @@ const Cotacao = () => {
                     <div>
                       <label className="block text-white font-medium mb-2">Prazo de Entrega *</label>
                       <input
-                        {...register('deadline', { 
+                        {...register('deadline', {
                           required: 'Prazo é obrigatório',
                           validate: (value) => {
                             const deadlineDate = new Date(value)
@@ -409,7 +494,7 @@ const Cotacao = () => {
                   className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8"
                 >
                   <h2 className="text-3xl font-bold text-white mb-8">Especificações Acadêmicas</h2>
-                  
+
                   <div className="space-y-6">
                     <div>
                       <label className="block text-white font-medium mb-2">Nível Acadêmico *</label>
@@ -495,7 +580,7 @@ const Cotacao = () => {
                   className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8"
                 >
                   <h2 className="text-3xl font-bold text-white mb-8">Detalhes do Projeto</h2>
-                  
+
                   <div className="space-y-6">
                     <div>
                       <label className="block text-white font-medium mb-2">Título do Trabalho *</label>
@@ -563,6 +648,15 @@ const Cotacao = () => {
                               type="checkbox"
                               value={service.value}
                               className="w-4 h-4 text-primary-gold bg-white/10 border-white/20 rounded focus:ring-primary-gold focus:ring-2"
+                              onChange={(e) => {
+                                const currentServices = watchedFields.additionalServices || []
+                                if (e.target.checked) {
+                                  setValue('additionalServices', [...currentServices, service.value])
+                                } else {
+                                  setValue('additionalServices', currentServices.filter(s => s !== service.value))
+                                }
+                              }}
+                              checked={watchedFields.additionalServices?.includes(service.value) || false}
                             />
                             <span className="text-white">{service.label}</span>
                           </label>

@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+import { Menu, MessageCircle, X } from 'lucide-react'
+import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, MessageCircle } from 'lucide-react'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -20,6 +20,7 @@ const Navbar = () => {
     { name: 'Início', path: '/' },
     { name: 'Sobre Nós', path: '/#sobre' },
     { name: 'Serviços', path: '/servicos' },
+    { name: 'BrainyForge', path: '/brainyforge' },
     { name: 'Blog', path: '/blog' },
     { name: 'Portfólio', path: '/portfolio' },
     { name: 'Contacto', path: '/contacto' }
@@ -30,8 +31,8 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 navbar-gold ${
-        scrolled 
-          ? 'bg-black/90 backdrop-blur-md border-b border-yellow-500/20' 
+        scrolled
+          ? 'bg-black/90 backdrop-blur-md border-b border-yellow-500/20'
           : 'bg-transparent'
       }`}
     >
@@ -65,7 +66,7 @@ const Navbar = () => {
           {/* CTA Button */}
           <div className="hidden md:flex items-center space-x-4">
             <Link
-              to="/agendar"
+              to="/contacto"
               className="btn-primary px-6 py-3 rounded-full text-sm font-semibold hover:shadow-2xl hover:shadow-yellow-500/25 transition-all duration-300 flex items-center space-x-2 neon-glow-hover"
             >
               <MessageCircle className="w-4 h-4" />
@@ -77,7 +78,9 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-white hover:text-yellow-400 transition-colors duration-200"
+              className="text-white hover:text-yellow-400 transition-colors duration-200 p-2"
+              aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
+              aria-expanded={isOpen}
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -110,7 +113,7 @@ const Navbar = () => {
                 </Link>
               ))}
               <Link
-                to="/agendar"
+                to="/contacto"
                 onClick={() => setIsOpen(false)}
                 className="block btn-primary px-6 py-3 rounded-full text-center font-medium hover:shadow-lg hover:shadow-yellow-500/25 transition-all duration-300"
               >

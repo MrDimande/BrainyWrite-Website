@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json.schemastore.org/vsix",
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss",
+    "formulahendry.auto-rename-tag",
+    "christian-kohler.path-intellisense",
+    "dsznajder.es7-react-js-snippets",
+    "eamodio.gitlens",
+    "pkief.material-icon-theme",
+    "editorconfig.editorconfig",
+    "ms-vscode.vscode-typescript-next",
+    "rangav.vscode-thunder-client",
+    "naumovs.color-highlight"
+  ]
+}

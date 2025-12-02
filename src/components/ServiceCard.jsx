@@ -19,8 +19,8 @@ const ServiceCard = ({ service, index }) => {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1, duration: 0.6 }}
-      whileHover={{ 
-        scale: 1.02, 
+      whileHover={{
+        scale: 1.02,
         y: -10,
         boxShadow: '0 20px 40px rgba(255, 215, 0, 0.2)'
       }}
@@ -28,7 +28,7 @@ const ServiceCard = ({ service, index }) => {
     >
       {/* Efeito de brilho dourado no hover */}
       <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/0 via-yellow-500/10 to-yellow-600/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      
+
       <div className="relative z-10">
         {/* Ícone */}
         <motion.div
@@ -65,18 +65,6 @@ const ServiceCard = ({ service, index }) => {
           ))}
         </ul>
 
-        {/* Preço */}
-        <div className="mb-6">
-          <div className="text-3xl font-bold text-primary-gold mb-2">
-            {service.price}
-          </div>
-          {service.priceNote && (
-            <div className="text-white/60 text-sm">
-              {service.priceNote}
-            </div>
-          )}
-        </div>
-
         {/* Botões de ação */}
         <div className="space-y-3">
           <Link
@@ -91,7 +79,7 @@ const ServiceCard = ({ service, index }) => {
               Ver Detalhes
             </motion.button>
           </Link>
-          
+
           <Link
             to="/cotacao"
             className="block"

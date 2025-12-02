@@ -10,9 +10,15 @@ import {
   GraduationCap,
   Briefcase,
   CheckCircle,
+  Star,
+  Quote,
+  ArrowRight,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import Hero from "../components/Hero";
 import ServiceCard from "../components/ServiceCard";
+import Newsletter from "../components/Newsletter";
+import { testimonials, getFeaturedTestimonials } from "../data/testimonials";
 
 const Home = () => {
   const services = [
@@ -28,8 +34,6 @@ const Home = () => {
         "Relatórios Técnicos",
         "Revisão e Formatação",
       ],
-      price: "A partir de 5.000 MT",
-      priceNote: "Preço varia conforme complexidade",
       buttonText: "Solicitar Cotação",
     },
     {
@@ -44,8 +48,6 @@ const Home = () => {
         "São Tomás de Moçambique",
         "Tutoria personalizada",
       ],
-      price: "3.000-8.000 MT/mês",
-      priceNote: "Conforme modalidade e carga horária",
       buttonText: "Agendar Consulta",
     },
     {
@@ -60,8 +62,6 @@ const Home = () => {
         "Personal Branding",
         "LinkedIn Optimization",
       ],
-      price: "2.500-6.000 MT",
-      priceNote: "Pacotes personalizados disponíveis",
       buttonText: "Explorar Serviços",
     },
   ];
@@ -98,10 +98,20 @@ const Home = () => {
     experience: "2+ anos",
     clients: "40+ clientes satisfeitos",
     projects: "50+ projetos realizados",
-    founder: "Alberto Dimande",
-    founderTitle: "Fundador e CEO",
-    founderCredentials:
-      "Licenciado em Planeamento e Ordenamento Territorial, especialista em Programação e Desenvolvimento Web",
+    founders: [
+      {
+        name: "Alberto Dimande",
+        title: "Fundador e CEO",
+        credentials:
+          "Licenciado em Planeamento e Ordenamento Territorial, especialista em Programação e Desenvolvimento Web",
+      },
+      {
+        name: "Rabeca Come",
+        title: "Co-Fundadora",
+        credentials:
+          "Licenciada em Planeamento e Ordenamento Territorial, especialista em Pesquisa e Survey",
+      },
+    ],
   };
 
   const guarantees = [
@@ -242,19 +252,30 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-              <div className="text-center">
-                <div className="w-32 h-32 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center mx-auto mb-6 gold-shadow">
-                  <Users className="w-16 h-16 text-black" />
-                </div>
-                <h4 className="text-2xl font-bold text-white mb-2 font-montserrat">
-                  {companyInfo.founder}
-                </h4>
-                <p className="gradient-text font-semibold mb-3 font-poppins">
-                  {companyInfo.founderTitle}
-                </p>
-                <p className="text-white/70 text-sm leading-relaxed font-poppins">
-                  {companyInfo.founderCredentials}
-                </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {companyInfo.founders.map((founder, index) => (
+                  <motion.div
+                    key={founder.name}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.2 }}
+                    viewport={{ once: true }}
+                    className="text-center"
+                  >
+                    <div className="w-24 h-24 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4 gold-shadow">
+                      <Users className="w-12 h-12 text-black" />
+                    </div>
+                    <h4 className="text-xl font-bold text-white mb-2 font-montserrat">
+                      {founder.name}
+                    </h4>
+                    <p className="gradient-text font-semibold mb-3 font-poppins text-sm">
+                      {founder.title}
+                    </p>
+                    <p className="text-white/70 text-xs leading-relaxed font-poppins">
+                      {founder.credentials}
+                    </p>
+                  </motion.div>
+                ))}
               </div>
             </div>
           </motion.div>
@@ -319,13 +340,10 @@ const Home = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Nossos{" "}
-              <span className="bg-gradient-to-r from-primary-gold to-primary-teal bg-clip-text text-transparent">
-                Serviços
-              </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-montserrat">
+              Nossos <span className="gradient-text">Serviços</span>
             </h2>
-            <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed font-poppins">
               Soluções completas para seu desenvolvimento acadêmico e
               profissional, com qualidade garantida e suporte especializado.
             </p>
@@ -343,6 +361,117 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Depoimentos */}
+      <section className="py-20 bg-black/50 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-montserrat">
+              O Que Nossos <span className="gradient-text">Clientes Dizem</span>
+            </h2>
+            <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed font-poppins">
+              Mais de 40 clientes satisfeitos compartilham suas experiências de
+              sucesso com a BrainyWrite.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {getFeaturedTestimonials(6).map((testimonial, index) => (
+              <motion.div
+                key={testimonial.id}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.02, y: -5 }}
+                className="glass rounded-2xl p-6 gold-border hover:glass-hover transition-all duration-300 flex flex-col"
+              >
+                {/* Quote Icon */}
+                <div className="mb-4">
+                  <Quote className="w-8 h-8 text-yellow-400" />
+                </div>
+
+                {/* Rating */}
+                <div className="flex items-center gap-1 mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="w-4 h-4 text-yellow-400 fill-current"
+                    />
+                  ))}
+                </div>
+
+                {/* Testimonial Text */}
+                <p className="text-white/80 leading-relaxed mb-6 flex-1 font-poppins italic">
+                  "{testimonial.text}"
+                </p>
+
+                {/* Author Info */}
+                <div className="border-t border-white/10 pt-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center gold-shadow">
+                      <span className="text-black font-bold text-sm">
+                        {testimonial.name.charAt(0)}
+                      </span>
+                    </div>
+                    <div>
+                      <h4 className="text-white font-semibold font-montserrat">
+                        {testimonial.name}
+                      </h4>
+                      <p className="text-white/60 text-sm font-poppins">
+                        {testimonial.role} • {testimonial.institution}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="mt-3">
+                    <span className="px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-xs font-medium">
+                      {testimonial.service}
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* View More */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+            viewport={{ once: true }}
+            className="text-center mt-12"
+          >
+            <Link
+              to="/portfolio"
+              className="btn-secondary px-8 py-4 rounded-full font-semibold inline-flex items-center gap-2 hover:scale-105 transition-all duration-300"
+            >
+              Ver Mais Depoimentos
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Newsletter Section */}
+      <section className="py-20 bg-black/30 backdrop-blur-sm">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="glass rounded-2xl p-8 md:p-12 gold-border"
+          >
+            <Newsletter />
+          </motion.div>
+        </div>
+      </section>
+
       {/* CTA Final */}
       <section className="py-20 bg-gradient-to-r from-primary-purple/20 to-primary-blue/20 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -353,35 +482,37 @@ const Home = () => {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white">
+            <h2 className="text-4xl md:text-5xl font-bold text-white font-montserrat">
               Pronto para começar sua jornada de{" "}
               <span className="bg-gradient-to-r from-primary-gold to-primary-teal bg-clip-text text-transparent">
                 sucesso
               </span>
               ?
             </h2>
-            <p className="text-xl text-white/70 leading-relaxed">
+            <p className="text-xl text-white/70 leading-relaxed font-poppins">
               Entre em contato conosco hoje mesmo e descubra como podemos
               transformar seus objetivos acadêmicos e profissionais em
               realidade.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.a
-                href="/agendar"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-primary-purple to-primary-blue text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-2xl hover:shadow-primary-purple/25 transition-all duration-300"
-              >
-                Agendar Consulta Gratuita
-              </motion.a>
-              <motion.a
-                href="/cotacao"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/20 transition-all duration-300"
-              >
-                Solicitar Cotação
-              </motion.a>
+              <Link to="/agendar">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="btn-primary px-8 py-4 rounded-full text-lg font-semibold hover:shadow-2xl hover:shadow-yellow-500/25 transition-all duration-300 neon-glow-hover"
+                >
+                  Agendar Consulta Gratuita
+                </motion.button>
+              </Link>
+              <Link to="/cotacao">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="btn-secondary px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300"
+                >
+                  Solicitar Cotação
+                </motion.button>
+              </Link>
             </div>
           </motion.div>
         </div>

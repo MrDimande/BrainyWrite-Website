@@ -34,9 +34,13 @@ export const articles = [
       <h2>Conclusão</h2>
       <p>A IA representa uma oportunidade transformadora única para a educação em Moçambique. Com planeamento adequado, investimento estratégico e implementação cuidadosa, Moçambique pode posicionar-se como líder na implementação de tecnologias educacionais inovadoras em África. Esta liderança beneficiará não apenas estudantes moçambicanos, mas contribuirá para o desenvolvimento regional e continental. A educação é o fundamento do desenvolvimento sustentável, e a IA pode ser a ferramenta que acelera o progresso em direcção a uma Moçambique mais próspera, justa e educada.</p>
     `,
-    author: "Alberto Dimande",
-    date: "2024-01-10",
-    category: "Tecnologia, Educação",
+    author: {
+      name: "Alberto Dimande",
+      role: "Fundador da BrainyWrite",
+      bio: "Licenciado em Planeamento e Ordenamento Territorial"
+    },
+    publishDate: "2024-01-10",
+    category: "Tecnologia",
     tags: ["IA", "Educação", "Tecnologia", "Moçambique"],
     readTime: "15 min",
     image: "/images/blog/ia-educacao.jpg",
@@ -88,9 +92,13 @@ export const articles = [
       <h2>Conclusão Transformadora</h2>
       <p>O storytelling representa uma oportunidade radicalmente transformadora para a educação em Moçambique, combinando tradição profunda com inovação moderna para criar experiências de aprendizado que são simultaneamente envolventes, memoráveis e profundamente humanas. Com implementação cuidadosa, suporte adequado e compromisso de longo prazo, o storytelling pode contribuir significativamente para o desenvolvimento educacional do país. Cada história contada em contexto educacional não é apenas transmissão de informação, mas um acto de preservação cultural, desenvolvimento humano e construção de futuro. A rica tradição narrativa moçambicana, honrada e modernizada através do storytelling educacional, pode ser uma das maiores forças para o desenvolvimento sustentável do país.</p>
     `,
-    author: "Alberto Dimande",
-    date: "2024-01-12",
-    category: "Pedagogia, Cultura",
+    author: {
+      name: "Alberto Dimande",
+      role: "Fundador da BrainyWrite",
+      bio: "Licenciado em Planeamento e Ordenamento Territorial"
+    },
+    publishDate: "2024-01-12",
+    category: "Pedagogia",
     tags: ["Storytelling", "Educação", "Cultura", "Pedagogia"],
     readTime: "20 min",
     image: "/images/blog/storytelling.jpg",
@@ -135,9 +143,13 @@ export const articles = [
       <h2>Conclusão: O Caminho para a Transformação</h2>
       <p>O e-learning representa uma oportunidade genuinamente transformadora para a educação em Moçambique. Com planeamento adequado, investimento estratégico e implementação cuidadosa e contextualizada, pode contribuir significativamente para melhorar o acesso, qualidade e relevância da educação no país. O sucesso requer não apenas tecnologia, mas visão estratégica, compromisso institucional, formação adequada, desenvolvimento de conteúdo local, e atenção contínua à equidade e inclusão. A educação digital em Moçambique não será uma cópia de modelos ocidentais, mas uma inovação genuinamente africana que honra contexto local enquanto abraça as melhores práticas globais.</p>
     `,
-    author: "Alberto Dimande",
-    date: "2024-01-14",
-    category: "Tecnologia, Educação",
+    author: {
+      name: "Alberto Dimande",
+      role: "Fundador da BrainyWrite",
+      bio: "Licenciado em Planeamento e Ordenamento Territorial"
+    },
+    publishDate: "2024-01-14",
+    category: "Tecnologia",
     tags: ["E-Learning", "Educação Digital", "Tecnologia", "Moçambique"],
     readTime: "25 min",
     image: "/images/blog/e-learning.jpg",
@@ -146,7 +158,37 @@ export const articles = [
 ]
 
 export const getRelatedArticles = (currentArticleId, limit = 3) => {
-  return articles
-    .filter(article => article.id !== currentArticleId)
+  const currentArticle = articles.find(article => article.id === currentArticleId)
+  if (!currentArticle) return articles.slice(0, limit)
+
+  // Filter articles by same category first, then by tags
+  const relatedIds = new Set()
+  const related = articles
+    .filter(article => {
+      if (article.id === currentArticleId) return false
+      if (relatedIds.has(article.id)) return false
+
+      // Prioritize same category
+      if (article.category === currentArticle.category) {
+        relatedIds.add(article.id)
+        return true
+      }
+      // Then check for shared tags
+      if (article.tags.some(tag => currentArticle.tags.includes(tag))) {
+        relatedIds.add(article.id)
+        return true
+      }
+      return false
+    })
     .slice(0, limit)
+
+  // If we don't have enough related articles, fill with other articles
+  if (related.length < limit) {
+    const additional = articles
+      .filter(article => article.id !== currentArticleId && !relatedIds.has(article.id))
+      .slice(0, limit - related.length)
+    return [...related, ...additional]
+  }
+
+  return related
 }

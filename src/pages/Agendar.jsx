@@ -2,13 +2,14 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-hot-toast'
-import { 
-  Calendar, 
-  Clock, 
-  MapPin, 
-  Phone, 
-  Mail, 
-  User, 
+import api from '../config/api'
+import {
+  Calendar,
+  Clock,
+  MapPin,
+  Phone,
+  Mail,
+  User,
   MessageCircle,
   CheckCircle,
   Send,
@@ -30,15 +31,35 @@ const Agendar = () => {
 
   const onSubmit = async (data) => {
     setIsSubmitting(true)
-    
+
     try {
-      // Simular envio do formulário
-      await new Promise(resolve => setTimeout(resolve, 2000))
-      
-      toast.success('Consulta agendada com sucesso! Entraremos em contato em breve.')
+      const response = await fetch(api.appointment, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          service: data.service,
+          date: data.date,
+          time: data.time,
+          message: data.message || '',
+        }),
+      })
+
+      const result = await response.json()
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Erro ao agendar consulta')
+      }
+
+      toast.success(result.message || 'Consulta agendada com sucesso! Entraremos em contato em breve.')
       reset()
     } catch (error) {
-      toast.error('Erro ao agendar consulta. Tente novamente.')
+      console.error('Error submitting appointment:', error)
+      toast.error(error.message || 'Erro ao agendar consulta. Tente novamente.')
     } finally {
       setIsSubmitting(false)
     }
@@ -82,7 +103,7 @@ const Agendar = () => {
               Agendar <span className="gradient-text">Consulta</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed font-poppins">
-              Agende sua consulta gratuita e descubra como podemos transformar 
+              Agende sua consulta gratuita e descubra como podemos transformar
               seus objetivos acadêmicos e profissionais em realidade.
             </p>
           </motion.div>
@@ -102,7 +123,7 @@ const Agendar = () => {
             >
               <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8">
                 <h2 className="text-3xl font-bold text-white mb-8">Preencha o Formulário</h2>
-                
+
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                   {/* Nome Completo */}
                   <div>
@@ -134,7 +155,7 @@ const Agendar = () => {
                     <div className="relative">
                       <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-white/50" />
                       <input
-                        {...register('email', { 
+                        {...register('email', {
                           required: 'Email é obrigatório',
                           pattern: {
                             value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
@@ -162,7 +183,7 @@ const Agendar = () => {
                     <div className="relative">
                       <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-white/50" />
                       <input
-                        {...register('phone', { 
+                        {...register('phone', {
                           required: 'Telefone é obrigatório',
                           pattern: {
                             value: /^(\+258|258)?[0-9]{9}$/,
@@ -264,7 +285,7 @@ const Agendar = () => {
                       <div className="relative">
                         <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-white/50" />
                         <input
-                          {...register('date', { 
+                          {...register('date', {
                             required: 'Data é obrigatória',
                             validate: (value) => {
                               const selectedDate = new Date(value)
@@ -331,7 +352,7 @@ const Agendar = () => {
                         className="w-4 h-4 text-primary-gold bg-white/10 border-white/20 rounded focus:ring-primary-gold focus:ring-2 mt-1"
                       />
                       <span className="text-white/80 text-sm">
-                        Aceito os <a href="/terms" className="text-primary-gold hover:underline">termos e condições</a> e 
+                        Aceito os <a href="/terms" className="text-primary-gold hover:underline">termos e condições</a> e
                         a <a href="/privacy" className="text-primary-gold hover:underline">política de privacidade</a>
                       </span>
                     </label>

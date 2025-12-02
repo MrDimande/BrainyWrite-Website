@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
+import { ArrowRight, Award, Target, Users, Zap } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Sparkles, Target, Users, Award, Zap } from 'lucide-react'
 
 const Hero = () => {
   const stats = [
@@ -14,7 +14,7 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden hero-spacing">
       {/* Background com gradiente dourado animado */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>
-      
+
       {/* Grid futurístico dourado */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
@@ -24,29 +24,6 @@ const Hero = () => {
           `,
           backgroundSize: '50px 50px'
         }}></div>
-      </div>
-
-      {/* Partículas douradas flutuantes */}
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-yellow-400/30 rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -20, 0],
-              opacity: [0.3, 0.8, 0.3],
-            }}
-            transition={{
-              duration: 4 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 3,
-            }}
-          />
-        ))}
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -63,7 +40,6 @@ const Hero = () => {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="inline-flex items-center space-x-2 bg-gradient-to-r from-yellow-500/20 to-yellow-600/20 backdrop-blur-md border border-yellow-500/30 rounded-full px-6 py-3 text-yellow-300 text-sm font-medium font-poppins gold-shadow"
           >
-            <Sparkles className="w-4 h-4 text-yellow-400" />
             <span>🔥 Consultoria Acadêmica de Excelência desde 2023</span>
           </motion.div>
 
@@ -101,10 +77,10 @@ const Hero = () => {
               to="/agendar"
               className="group btn-primary text-lg px-8 py-4 rounded-full font-semibold hover:shadow-2xl hover:shadow-yellow-500/25 transition-all duration-300 flex items-center space-x-2 neon-glow-hover"
             >
-              <span>Falar com BW360 Assistant</span>
+              <span>Agendar Consulta com BW360 Assistant</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
-            
+
             <Link
               to="/servicos"
               className="group btn-secondary text-lg px-8 py-4 rounded-full font-semibold transition-all duration-300 flex items-center space-x-2"

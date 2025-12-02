@@ -11,6 +11,17 @@ import {
   Shield,
   ArrowRight,
   Star,
+  BookMarked,
+  Search,
+  PenTool,
+  FileText,
+  BarChart3,
+  Presentation,
+  Languages,
+  Mic,
+  FileCheck,
+  BookOpenCheck,
+  Target,
 } from "lucide-react";
 
 const Servicos = () => {
@@ -19,6 +30,17 @@ const Servicos = () => {
       "Produção de Trabalhos Académicos": "producao-academica",
       "Acompanhamento Online": "acompanhamento-online",
       "Consultoria Profissional e Criativa": "consultoria-profissional",
+      "Formação e Capacitação": "formacao-capacitacao",
+      "Consultoria em Pesquisa": "consultoria-pesquisa",
+      "Revisão e Correção de Textos": "revisao-correcao",
+      "Metodologia Científica": "metodologia-cientifica",
+      "Análise de Dados": "analise-dados",
+      "Preparação de Apresentações": "preparacao-apresentacoes",
+      "Tradução de Documentos": "traducao-documentos",
+      "Orientação para Defesa Oral": "orientacao-defesa-oral",
+      "Consultoria em Publicações Científicas": "consultoria-publicacoes",
+      "Formatação de Referências Bibliográficas": "formatacao-referencias",
+      "Mentoria Acadêmica": "mentoria-academica",
     };
     return slugs[title] || "";
   };
@@ -37,8 +59,6 @@ const Servicos = () => {
         "Revisão e Formatação",
         "Normas ABNT, APA, Vancouver",
       ],
-      price: "A partir de 2.500 MT",
-      priceNote: "Preço varia conforme complexidade e prazo",
       buttonText: "Solicitar Cotação",
       details: {
         timeline: "7-30 dias",
@@ -60,8 +80,6 @@ const Servicos = () => {
         "Tutoria personalizada",
         "Assistência em provas e trabalhos",
       ],
-      price: "3.000-8.000 MT/mês",
-      priceNote: "Conforme modalidade e carga horária",
       buttonText: "Agendar Consulta",
       details: {
         timeline: "Flexível",
@@ -83,14 +101,243 @@ const Servicos = () => {
         "LinkedIn Optimization",
         "Planos de Carreira",
       ],
-      price: "500-6.000 MT",
-      priceNote: "Pacotes personalizados disponíveis",
       buttonText: "Explorar Serviços",
       details: {
         timeline: "3-14 dias",
         revisions: "3 inclusas",
         guarantee: "Satisfação garantida",
         support: "Pós-entrega",
+      },
+    },
+    {
+      icon: BookMarked,
+      title: "Formação e Capacitação",
+      description:
+        "Cursos e workshops especializados para desenvolvimento de competências acadêmicas e profissionais.",
+      features: [
+        "Metodologia de Pesquisa",
+        "Redação Científica",
+        "Técnicas de Apresentação",
+        "Gestão de Projetos",
+        "Ferramentas Digitais",
+        "Certificados de Conclusão",
+      ],
+      buttonText: "Ver Cursos",
+      details: {
+        timeline: "Flexível",
+        revisions: "Contínuas",
+        guarantee: "Material didático",
+        support: "Durante curso",
+      },
+    },
+    {
+      icon: Search,
+      title: "Consultoria em Pesquisa",
+      description:
+        "Orientações especializadas para desenvolvimento de pesquisas científicas, desde a concepção até a análise de resultados.",
+      features: [
+        "Design de Pesquisa",
+        "Metodologias Quantitativas",
+        "Metodologias Qualitativas",
+        "Análise Estatística",
+        "Interpretação de Resultados",
+        "Validação Científica",
+      ],
+      buttonText: "Solicitar Consulta",
+      details: {
+        timeline: "Conforme projeto",
+        revisions: "Contínuas",
+        guarantee: "Rigor científico",
+        support: "Acompanhamento",
+      },
+    },
+    {
+      icon: PenTool,
+      title: "Revisão e Correção de Textos",
+      description:
+        "Serviços profissionais de revisão textual, correção gramatical e ajustes de formatação para trabalhos acadêmicos.",
+      features: [
+        "Revisão Gramatical",
+        "Correção Ortográfica",
+        "Ajustes de Formatação",
+        "Melhoria de Estilo",
+        "Verificação de Normas",
+        "Feedback Detalhado",
+      ],
+      buttonText: "Enviar Texto",
+      details: {
+        timeline: "2-7 dias",
+        revisions: "Incluídas",
+        guarantee: "Qualidade garantida",
+        support: "Durante revisão",
+      },
+    },
+    {
+      icon: FileText,
+      title: "Metodologia Científica",
+      description:
+        "Suporte especializado na estruturação metodológica de pesquisas, definição de objetivos e hipóteses de estudo.",
+      features: [
+        "Estruturação Metodológica",
+        "Definição de Objetivos",
+        "Formulação de Hipóteses",
+        "Escolha de Métodos",
+        "Validação Metodológica",
+        "Orientação Contínua",
+      ],
+      buttonText: "Agendar Consulta",
+      details: {
+        timeline: "5-15 dias",
+        revisions: "2 inclusas",
+        guarantee: "Metodologia validada",
+        support: "Acompanhamento",
+      },
+    },
+    {
+      icon: BarChart3,
+      title: "Análise de Dados",
+      description:
+        "Processamento e análise estatística de dados de pesquisa, com interpretação de resultados e visualizações.",
+      features: [
+        "Processamento de Dados",
+        "Análise Estatística",
+        "Visualizações Gráficas",
+        "Interpretação de Resultados",
+        "Relatórios Analíticos",
+        "Ferramentas Especializadas",
+      ],
+      buttonText: "Solicitar Análise",
+      details: {
+        timeline: "5-14 dias",
+        revisions: "Incluídas",
+        guarantee: "Precisão garantida",
+        support: "Durante análise",
+      },
+    },
+    {
+      icon: Presentation,
+      title: "Preparação de Apresentações",
+      description:
+        "Criação de apresentações profissionais e acadêmicas, otimizadas para defesas, conferências e apresentações corporativas.",
+      features: [
+        "Apresentações Acadêmicas",
+        "Slides Profissionais",
+        "Design Personalizado",
+        "Estruturação de Conteúdo",
+        "Técnicas de Apresentação",
+        "Material de Apoio",
+      ],
+      buttonText: "Solicitar Orçamento",
+      details: {
+        timeline: "3-10 dias",
+        revisions: "2 inclusas",
+        guarantee: "Design profissional",
+        support: "Pós-entrega",
+      },
+    },
+    {
+      icon: Languages,
+      title: "Tradução de Documentos",
+      description:
+        "Serviços profissionais de tradução acadêmica e técnica em múltiplos idiomas, mantendo a precisão científica e o rigor acadêmico.",
+      features: [
+        "Tradução Português/Inglês",
+        "Tradução Inglês/Português",
+        "Tradução Acadêmica",
+        "Tradução Técnica",
+        "Tradução Certificada",
+        "Revisão de Traduções",
+      ],
+      buttonText: "Solicitar Tradução",
+      details: {
+        timeline: "3-15 dias",
+        revisions: "1 inclusa",
+        guarantee: "Qualidade garantida",
+        support: "Durante tradução",
+      },
+    },
+    {
+      icon: Mic,
+      title: "Orientação para Defesa Oral",
+      description:
+        "Preparação especializada para defesas de tese, dissertação e apresentações acadêmicas, incluindo técnicas de oratória e gestão de nervosismo.",
+      features: [
+        "Simulação de Defesa",
+        "Preparação de Argumentos",
+        "Técnicas de Oratória",
+        "Gestão de Nervosismo",
+        "Preparação para Perguntas",
+        "Feedback Personalizado",
+      ],
+      buttonText: "Agendar Sessão",
+      details: {
+        timeline: "2-5 dias",
+        revisions: "Incluídas",
+        guarantee: "Confiança garantida",
+        support: "Até defesa",
+      },
+    },
+    {
+      icon: BookOpenCheck,
+      title: "Consultoria em Publicações Científicas",
+      description:
+        "Apoio completo para publicação de artigos científicos em revistas indexadas, desde a escolha do periódico até a submissão final.",
+      features: [
+        "Escolha de Periódicos",
+        "Preparação para Submissão",
+        "Resposta a Revisores",
+        "Ajustes Editoriais",
+        "Normas de Publicação",
+        "Indexação e Impacto",
+      ],
+      buttonText: "Consultar Especialista",
+      details: {
+        timeline: "15-60 dias",
+        revisions: "Contínuas",
+        guarantee: "Acompanhamento total",
+        support: "Até publicação",
+      },
+    },
+    {
+      icon: FileCheck,
+      title: "Formatação de Referências Bibliográficas",
+      description:
+        "Formatação profissional de referências bibliográficas e citações conforme normas ABNT, APA, Vancouver, Chicago e outras normas acadêmicas.",
+      features: [
+        "Formatação ABNT",
+        "Formatação APA",
+        "Formatação Vancouver",
+        "Formatação Chicago",
+        "Verificação de Citações",
+        "Atualização Automática",
+      ],
+      buttonText: "Enviar Documento",
+      details: {
+        timeline: "1-3 dias",
+        revisions: "1 inclusa",
+        guarantee: "Normas corretas",
+        support: "Durante formatação",
+      },
+    },
+    {
+      icon: Target,
+      title: "Mentoria Acadêmica",
+      description:
+        "Acompanhamento personalizado de longo prazo para desenvolvimento acadêmico e profissional, com foco em objetivos específicos.",
+      features: [
+        "Plano de Desenvolvimento",
+        "Acompanhamento Regular",
+        "Definição de Metas",
+        "Orientação Contínua",
+        "Suporte Motivacional",
+        "Avaliação de Progresso",
+      ],
+      buttonText: "Conhecer Mentorias",
+      details: {
+        timeline: "Mensal/Trimestral",
+        revisions: "Contínuas",
+        guarantee: "Acompanhamento dedicado",
+        support: "Durante mentoria",
       },
     },
   ];
@@ -175,6 +422,20 @@ const Servicos = () => {
       {/* Serviços Principais */}
       <section className="py-20 bg-black/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 font-montserrat">
+              Soluções <span className="gradient-text">Completas</span>
+            </h2>
+            <p className="text-lg text-white/70 max-w-2xl mx-auto font-poppins">
+              Oferecemos uma gama completa de serviços para atender todas as suas necessidades acadêmicas e profissionais.
+            </p>
+          </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => {
               const serviceSlug = getServiceSlug(service.title);
@@ -232,7 +493,7 @@ const Servicos = () => {
                     {/* Detalhes do serviço */}
                     <div className="grid grid-cols-2 gap-4 mb-6">
                       <div className="text-center">
-                        <div className="text-2xl font-bold gradient-text">
+                        <div className="text-2xl font-bold gradient-text font-montserrat">
                           {service.details.timeline}
                         </div>
                         <div className="text-white/60 text-sm font-poppins">
@@ -240,22 +501,12 @@ const Servicos = () => {
                         </div>
                       </div>
                       <div className="text-center">
-                        <div className="text-2xl font-bold gradient-text">
+                        <div className="text-2xl font-bold gradient-text font-montserrat">
                           {service.details.revisions}
                         </div>
                         <div className="text-white/60 text-sm font-poppins">
                           Revisões
                         </div>
-                      </div>
-                    </div>
-
-                    {/* Preço */}
-                    <div className="mb-6">
-                      <div className="text-3xl font-bold gradient-text mb-2 font-montserrat">
-                        {service.price}
-                      </div>
-                      <div className="text-white/60 text-sm font-poppins">
-                        {service.priceNote}
                       </div>
                     </div>
 

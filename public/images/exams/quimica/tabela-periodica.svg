@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <rect width="400" height="300" fill="#1a1a2e"/>
+  <!-- Title -->
+  <text x="200" y="25" fill="#fbbf24" font-size="14" font-family="Arial" text-anchor="middle" font-weight="bold">Elementos da Tabela Periódica</text>
+  <!-- Element boxes -->
+  <!-- H -->
+  <rect x="30" y="50" width="45" height="50" fill="#ef4444" fill-opacity="0.3" stroke="#ef4444" stroke-width="2"/>
+  <text x="52" y="70" fill="#fff" font-size="8" font-family="Arial" text-anchor="middle">1</text>
+  <text x="52" y="88" fill="#fff" font-size="18" font-family="Arial" text-anchor="middle" font-weight="bold">H</text>
+  <text x="52" y="98" fill="#fff" font-size="6" font-family="Arial" text-anchor="middle">1.008</text>
+  <!-- He -->
+  <rect x="325" y="50" width="45" height="50" fill="#a855f7" fill-opacity="0.3" stroke="#a855f7" stroke-width="2"/>
+  <text x="347" y="70" fill="#fff" font-size="8" font-family="Arial" text-anchor="middle">2</text>
+  <text x="347" y="88" fill="#fff" font-size="18" font-family="Arial" text-anchor="middle" font-weight="bold">He</text>
+  <text x="347" y="98" fill="#fff" font-size="6" font-family="Arial" text-anchor="middle">4.003</text>
+  <!-- Li -->
+  <rect x="30" y="110" width="45" height="50" fill="#22c55e" fill-opacity="0.3" stroke="#22c55e" stroke-width="2"/>
+  <text x="52" y="130" fill="#fff" font-size="8" font-family="Arial" text-anchor="middle">3</text>
+  <text x="52" y="148" fill="#fff" font-size="18" font-family="Arial" text-anchor="middle" font-weight="bold">Li</text>
+  <text x="52" y="158" fill="#fff" font-size="6" font-family="Arial" text-anchor="middle">6.941</text>
+  <!-- C -->
+  <rect x="140" y="110" width="45" height="50" fill="#3b82f6" fill-opacity="0.3" stroke="#3b82f6" stroke-width="2"/>
+  <text x="162" y="130" fill="#fff" font-size="8" font-family="Arial" text-anchor="middle">6</text>
+  <text x="162" y="148" fill="#fff" font-size="18" font-family="Arial" text-anchor="middle" font-weight="bold">C</text>
+  <text x="162" y="158" fill="#fff" font-size="6" font-family="Arial" text-anchor="middle">12.01</text>
+  <!-- O -->
+  <rect x="215" y="110" width="45" height="50" fill="#ef4444" fill-opacity="0.3" stroke="#ef4444" stroke-width="2"/>
+  <text x="237" y="130" fill="#fff" font-size="8" font-family="Arial" text-anchor="middle">8</text>
+  <text x="237" y="148" fill="#fff" font-size="18" font-family="Arial" text-anchor="middle" font-weight="bold">O</text>
+  <text x="237" y="158" fill="#fff" font-size="6" font-family="Arial" text-anchor="middle">16.00</text>
+  <!-- Na -->
+  <rect x="30" y="170" width="45" height="50" fill="#22c55e" fill-opacity="0.3" stroke="#22c55e" stroke-width="2"/>
+  <text x="52" y="190" fill="#fff" font-size="8" font-family="Arial" text-anchor="middle">11</text>
+  <text x="52" y="208" fill="#fff" font-size="18" font-family="Arial" text-anchor="middle" font-weight="bold">Na</text>
+  <text x="52" y="218" fill="#fff" font-size="6" font-family="Arial" text-anchor="middle">22.99</text>
+  <!-- Legend -->
+  <rect x="30" y="250" width="12" height="12" fill="#22c55e" fill-opacity="0.5"/>
+  <text x="47" y="260" fill="#fff" font-size="9" font-family="Arial">Metais Alcalinos</text>
+  <rect x="150" y="250" width="12" height="12" fill="#a855f7" fill-opacity="0.5"/>
+  <text x="167" y="260" fill="#fff" font-size="9" font-family="Arial">Gases Nobres</text>
+  <rect x="270" y="250" width="12" height="12" fill="#3b82f6" fill-opacity="0.5"/>
+  <text x="287" y="260" fill="#fff" font-size="9" font-family="Arial">Não-Metais</text>
+</svg>

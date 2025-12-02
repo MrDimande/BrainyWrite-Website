@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <rect width="400" height="300" fill="#1a1a2e"/>
+  <!-- Grid -->
+  <g stroke="#333" stroke-width="0.5">
+    <line x1="50" y1="50" x2="50" y2="250"/><line x1="100" y1="50" x2="100" y2="250"/>
+    <line x1="150" y1="50" x2="150" y2="250"/><line x1="200" y1="50" x2="200" y2="250"/>
+    <line x1="250" y1="50" x2="250" y2="250"/><line x1="300" y1="50" x2="300" y2="250"/>
+    <line x1="350" y1="50" x2="350" y2="250"/>
+    <line x1="50" y1="50" x2="350" y2="50"/><line x1="50" y1="100" x2="350" y2="100"/>
+    <line x1="50" y1="150" x2="350" y2="150"/><line x1="50" y1="200" x2="350" y2="200"/>
+    <line x1="50" y1="250" x2="350" y2="250"/>
+  </g>
+  <!-- Axes -->
+  <line x1="50" y1="150" x2="350" y2="150" stroke="#fbbf24" stroke-width="2"/>
+  <line x1="200" y1="50" x2="200" y2="250" stroke="#fbbf24" stroke-width="2"/>
+  <!-- Line 1: x + y = 10 -->
+  <line x1="50" y1="50" x2="350" y2="250" stroke="#22c55e" stroke-width="2"/>
+  <!-- Line 2: x - y = 2 -->
+  <line x1="100" y1="250" x2="350" y2="125" stroke="#3b82f6" stroke-width="2"/>
+  <!-- Intersection point -->
+  <circle cx="260" cy="110" r="8" fill="#ef4444" stroke="#fff" stroke-width="2"/>
+  <!-- Labels -->
+  <text x="60" y="80" fill="#22c55e" font-size="12" font-family="Arial">x + y = 10</text>
+  <text x="280" y="240" fill="#3b82f6" font-size="12" font-family="Arial">x - y = 2</text>
+  <text x="270" y="100" fill="#fff" font-size="11" font-family="Arial">(6, 4)</text>
+</svg>

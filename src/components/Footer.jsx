@@ -1,17 +1,16 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import {
-  Mail,
-  Phone,
-  MapPin,
+  ArrowUp,
+  Clock,
   Facebook,
   Instagram,
   Linkedin,
+  Mail,
+  MapPin,
   MessageCircle,
-  ArrowUp,
-  Clock,
-  Calendar,
+  Phone,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -127,7 +126,7 @@ const Footer = () => {
               </div>
               <span className="text-white font-bold text-xl">BrainyWrite</span>
             </div>
-            <p className="text-white/70 mb-6 leading-relaxed">
+            <p className="text-white/70 mb-6 leading-relaxed font-poppins">
               Transformamos desafios acadêmicos e profissionais em oportunidades
               de excelência. Sua jornada para o sucesso começa aqui.
             </p>
@@ -154,7 +153,7 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-white font-semibold text-lg mb-6">Sobre Nós</h3>
+            <h3 className="text-white font-semibold text-lg mb-6 font-montserrat">Sobre Nós</h3>
             <ul className="space-y-3">
               {footerLinks.sobre.map((link, index) => (
                 <motion.li
@@ -166,7 +165,7 @@ const Footer = () => {
                 >
                   <Link
                     to={link.href}
-                    className="text-white/70 hover:text-yellow-400 transition-colors duration-300"
+                    className="text-white/70 hover:text-yellow-400 transition-colors duration-300 font-poppins"
                   >
                     {link.name}
                   </Link>
@@ -182,7 +181,7 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-white font-semibold text-lg mb-6">Serviços</h3>
+            <h3 className="text-white font-semibold text-lg mb-6 font-montserrat">Serviços</h3>
             <ul className="space-y-3">
               {footerLinks.servicos.map((link, index) => (
                 <motion.li
@@ -194,7 +193,7 @@ const Footer = () => {
                 >
                   <Link
                     to={link.href}
-                    className="text-white/70 hover:text-yellow-400 transition-colors duration-300"
+                    className="text-white/70 hover:text-yellow-400 transition-colors duration-300 font-poppins"
                   >
                     {link.name}
                   </Link>
@@ -203,99 +202,117 @@ const Footer = () => {
             </ul>
           </motion.div>
 
-          {/* Contacto e Horários lado a lado */}
+          {/* Contacto */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
-            className="space-y-6"
+            className="lg:col-span-1"
           >
-            {/* Contacto */}
-            <div>
-              <h3 className="text-white font-semibold text-lg mb-6">
-                Contacto
-              </h3>
+            <h3 className="text-white font-semibold text-lg mb-6 font-montserrat">
+              Contacto
+            </h3>
 
-              <div className="space-y-4">
-                {/* Email */}
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: 0.5 }}
-                  viewport={{ once: true }}
-                  className="flex items-center space-x-3"
+            <div className="space-y-4">
+              {/* Email */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="flex items-start space-x-3"
+              >
+                <Mail className="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0" />
+                <a
+                  href="mailto:contato.brainywrite@gmail.com"
+                  className="text-white/70 hover:text-yellow-400 transition-colors duration-300 text-sm font-poppins break-words"
                 >
-                  <Mail className="w-5 h-5 text-yellow-400" />
-                  <a
-                    href="mailto:cantato.brainywrite@gmail.com"
-                    className="text-white/70 hover:text-yellow-400 transition-colors duration-300"
-                  >
-                    cantato.brainywrite@gmail.com
-                  </a>
-                </motion.div>
+                  contato.brainywrite@gmail.com
+                </a>
+              </motion.div>
 
-                {/* Telefone */}
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: 0.6 }}
-                  viewport={{ once: true }}
-                  className="flex items-center space-x-3"
-                >
-                  <Phone className="w-5 h-5 text-yellow-400" />
+              {/* Telefone */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: 0.5 }}
+                viewport={{ once: true }}
+                className="flex items-start space-x-3"
+              >
+                <Phone className="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0" />
+                <div className="flex flex-col space-y-1">
                   <a
                     href="tel:+2588780883476"
-                    className="text-white/70 hover:text-yellow-400 transition-colors duration-300 block"
+                    className="text-white/70 hover:text-yellow-400 transition-colors duration-300 text-sm font-poppins"
                   >
                     +258 87 088 3476
                   </a>
                   <a
                     href="tel:+2588280883428"
-                    className="text-white/70 hover:text-yellow-400 transition-colors duration-300 block"
+                    className="text-white/70 hover:text-yellow-400 transition-colors duration-300 text-sm font-poppins"
                   >
                     +258 82 088 3428
                   </a>
-                </motion.div>
+                </div>
+              </motion.div>
 
-                {/* WhatsApp */}
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: 0.7 }}
-                  viewport={{ once: true }}
-                  className="flex items-center space-x-3"
+              {/* WhatsApp */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: 0.6 }}
+                viewport={{ once: true }}
+                className="flex items-center space-x-3"
+              >
+                <MessageCircle className="w-5 h-5 text-yellow-400 flex-shrink-0" />
+                <a
+                  href="https://wa.me/2588780883476"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/70 hover:text-yellow-400 transition-colors duration-300 text-sm font-poppins"
                 >
-                  <MessageCircle className="w-5 h-5 text-yellow-400" />
-                  <a
-                    href="https://wa.me/2588780883476"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white/70 hover:text-yellow-400 transition-colors duration-300"
-                  >
-                    WhatsApp
-                  </a>
-                </motion.div>
+                  WhatsApp
+                </a>
+              </motion.div>
 
-                {/* Localização */}
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: 0.8 }}
-                  viewport={{ once: true }}
-                  className="flex items-start space-x-3"
+              {/* Localização */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: 0.7 }}
+                viewport={{ once: true }}
+                className="flex items-start space-x-3"
+              >
+                <MapPin className="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0" />
+                <a
+                  href="https://maps.google.com/?q=Av.+Julius+Nyerere,+Polana+Canico+B,+Maputo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/70 hover:text-yellow-400 transition-colors duration-300 text-sm font-poppins break-words"
                 >
-                  <MapPin className="w-5 h-5 text-yellow-400 mt-0.5" />
-                  <a
-                    href="https://maps.google.com/?q=Av.+Julius+Nyerere,+Polana+Canico+B,+Maputo"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white/70 hover:text-yellow-400 transition-colors duration-300"
-                  >
-                    Av. Julius Nyerere, Polana Canico B, Maputo, Moçambique
-                  </a>
-                </motion.div>
-              </div>
+                  Av. Julius Nyerere, Polana Canico B, Maputo, Moçambique
+                </a>
+              </motion.div>
+
+              {/* Horário */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: 0.8 }}
+                viewport={{ once: true }}
+                className="flex items-start space-x-3 pt-2"
+              >
+                <Clock className="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0" />
+                <div className="flex flex-col space-y-1 text-sm text-white/70 font-poppins">
+                  <div>
+                    <span className="font-medium">Seg-Sex:</span> 08h00 - 17h00
+                  </div>
+                  <div>
+                    <span className="font-medium">Sábado:</span> 08h00 - 13h00
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>

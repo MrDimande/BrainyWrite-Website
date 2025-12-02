@@ -1,17 +1,18 @@
-import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Clock, 
-  Facebook, 
-  Instagram, 
-  Linkedin, 
-  MessageCircle,
-  Send
+import {
+    Clock,
+    Facebook,
+    Instagram,
+    Linkedin,
+    Mail,
+    MapPin,
+    MessageCircle,
+    Phone,
+    Send
 } from 'lucide-react'
+import { useState } from 'react'
 import { toast } from 'react-hot-toast'
+import api from '../config/api'
 
 const Contacto = () => {
   const [formData, setFormData] = useState({
@@ -35,9 +36,22 @@ const Contacto = () => {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simular envio
-    setTimeout(() => {
-      toast.success('Obrigado pelo contacto! Responderemos em breve.')
+    try {
+      const response = await fetch(api.contact, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const result = await response.json()
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Erro ao enviar mensagem')
+      }
+
+      toast.success(result.message || 'Obrigado pelo contacto! Responderemos em breve.')
       setFormData({
         nome: '',
         apelido: '',
@@ -46,8 +60,12 @@ const Contacto = () => {
         assunto: '',
         mensagem: ''
       })
+    } catch (error) {
+      console.error('Error submitting contact form:', error)
+      toast.error(error.message || 'Erro ao enviar mensagem. Tente novamente.')
+    } finally {
       setIsSubmitting(false)
-    }, 1500)
+    }
   }
 
   return (
@@ -61,11 +79,11 @@ const Contacto = () => {
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 font-montserrat">
-            Entre em <span className="gradient-text">Contacto</span>
+            Fale com a <span className="gradient-text">BrainyWrite</span>
           </h1>
           <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed font-poppins">
-            A BrainyWrite está pronta para transformar as suas ideias em impacto real. 
-            Fale connosco!
+            Preencha o formulário ou utilize um dos nossos canais abaixo para falar connosco
+            sobre o seu projecto académico ou profissional.
           </p>
         </motion.div>
 
@@ -110,10 +128,10 @@ const Contacto = () => {
               </div>
               <h3 className="text-white font-semibold text-lg mb-2 font-montserrat">Email</h3>
               <a
-                href="mailto:brainywriteconsultoria@gmail.com"
+                href="mailto:contato.brainywrite@gmail.com"
                 className="text-yellow-400 hover:text-yellow-300 transition-colors duration-300 break-all font-poppins"
               >
-                brainywriteconsultoria@gmail.com
+                contato.brainywrite@gmail.com
               </a>
             </motion.div>
 
@@ -227,12 +245,21 @@ const Contacto = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="glass rounded-2xl p-8 gold-border"
             >
+              <div className="mb-6 text-left">
+                <h2 className="text-2xl md:text-3xl font-bold text-white mb-2 font-montserrat">
+                  Envie-nos uma mensagem
+                </h2>
+                <p className="text-white/70 text-sm md:text-base font-poppins">
+                  Responderemos o mais rápido possível, normalmente dentro de 24 horas úteis.
+                </p>
+              </div>
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Nome e Apelido */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-white font-medium mb-2 font-montserrat">
-                      Primeiro Nome *
+                      Primeiro nome *
                     </label>
                     <input
                       type="text"
@@ -278,7 +305,7 @@ const Contacto = () => {
                   </div>
                   <div>
                     <label className="block text-white font-medium mb-2 font-montserrat">
-                      Telefone *
+                      Telefone/WhatsApp *
                     </label>
                     <input
                       type="tel"
@@ -287,7 +314,7 @@ const Contacto = () => {
                       onChange={handleChange}
                       required
                       className="form-input w-full"
-                      placeholder="+258 XX XXX XXXX"
+                      placeholder="+258 XX XXX XXXX (WhatsApp)"
                     />
                   </div>
                 </div>
@@ -325,7 +352,7 @@ const Contacto = () => {
                     required
                     rows="6"
                     className="form-input w-full resize-none"
-                    placeholder="Conte-nos como podemos ajudá-lo..."
+                    placeholder="Conte-nos como podemos ajudá-lo(a)..."
                   ></textarea>
                 </div>
 

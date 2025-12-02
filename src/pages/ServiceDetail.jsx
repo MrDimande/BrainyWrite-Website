@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
-import { 
-  BookOpen, 
-  GraduationCap, 
+import {
+  BookOpen,
+  GraduationCap,
   Briefcase,
   CheckCircle,
   Clock,
@@ -28,9 +28,9 @@ const ServiceDetail = () => {
       title: 'Produção de Trabalhos Académicos',
       subtitle: 'Excelência Académica Garantida',
       description: 'Criamos trabalhos acadêmicos de alta qualidade, desde monografias até teses de doutoramento, com rigor científico e originalidade garantida. Nossa equipa de profissionais qualificados trabalha em estreita colaboração consigo para garantir que cada trabalho reflita seus conhecimentos e atenda às mais altas expectativas académicas.',
-      
+
       whatWeDo: 'Desenvolvemos trabalhos académicos completos em diversas áreas do conhecimento, incluindo planeamento territorial, desenvolvimento urbano, educação, tecnologias, gestão, entre outras. Cada projecto é tratado com rigor científico, garantindo originalidade, relevância e qualidade excepcional.',
-      
+
       whatWeHaveDone: [
         {
           title: 'Monografia em Planeamento Territorial',
@@ -54,7 +54,7 @@ const ServiceDetail = () => {
           description: 'Assessoria especializada na elaboração de tese sobre Políticas Públicas de Ordenamento Territorial em Moçambique'
         }
       ],
-      
+
       howWeDoIt: [
         {
           step: '01',
@@ -81,7 +81,7 @@ const ServiceDetail = () => {
           description: 'Realizamos revisão completa, formatação profissional, verificação de originalidade e entrega do trabalho final com toda documentação necessária.'
         }
       ],
-      
+
       methods: [
         {
           icon: FileText,
@@ -104,7 +104,7 @@ const ServiceDetail = () => {
           description: 'Utilizamos inteligência artificial para análise de literatura, síntese de conteúdo e verificação de originalidade.'
         }
       ],
-      
+
       howToObtain: {
         steps: [
           'Preencha o formulário de cotação com detalhes do seu projecto',
@@ -121,7 +121,7 @@ const ServiceDetail = () => {
           'Norma de formatação exigida (ABNT, APA, etc.)'
         ]
       },
-      
+
       features: [
         'Monografias e Teses',
         'Artigos Científicos',
@@ -130,7 +130,7 @@ const ServiceDetail = () => {
         'Revisão e Formatação',
         'Normas ABNT, APA, Vancouver'
       ],
-      
+
       price: 'A partir de 5.000 MT',
       priceNote: 'Preço varia conforme complexidade e prazo',
       buttonText: 'Solicitar Cotação'
@@ -141,9 +141,9 @@ const ServiceDetail = () => {
       title: 'Acompanhamento Online',
       subtitle: 'Suporte Académico Personalizado',
       description: 'Oferecemos suporte especializado para estudantes de universidades parceiras, com tutoria personalizada e assistência em tempo real. Nosso programa de acompanhamento é projectado para maximizar seu sucesso académico através de apoio contínuo e estratégico.',
-      
+
       whatWeDo: 'Fornecemos suporte académico contínuo e personalizado para estudantes universitários, incluindo tutoria em disciplinas específicas, orientação em trabalhos acadêmicos, preparação para exames, e assistência com projectos de curso. Trabalhamos particularmente com estudantes de universidades parceiras como UNISED, UNISA, UCM, e USTM.',
-      
+
       whatWeHaveDone: [
         {
           title: 'Acompanhamento de Estudante UNISED',
@@ -160,7 +160,7 @@ const ServiceDetail = () => {
           description: 'Acompanhamento especializado em metodologia de pesquisa, resultando em proposta de dissertação aprovada'
         }
       ],
-      
+
       howWeDoIt: [
         {
           step: '01',
@@ -187,7 +187,7 @@ const ServiceDetail = () => {
           description: 'Acompanhamos seu progresso continuamente e ajustamos estratégias conforme necessário para garantir sucesso académico sustentado.'
         }
       ],
-      
+
       methods: [
         {
           icon: Users,
@@ -210,7 +210,7 @@ const ServiceDetail = () => {
           description: 'Orientação contínua sobre gestão de tempo, técnicas de estudo e desenvolvimento académico geral.'
         }
       ],
-      
+
       howToObtain: {
         steps: [
           'Contacte-nos através do formulário ou WhatsApp',
@@ -226,7 +226,7 @@ const ServiceDetail = () => {
           'Documentos académicos relevantes'
         ]
       },
-      
+
       features: [
         'UNISED (Universidade Pedagógica)',
         'UNISA (University of South Africa)',
@@ -235,7 +235,7 @@ const ServiceDetail = () => {
         'Tutoria personalizada',
         'Assistência em provas e trabalhos'
       ],
-      
+
       price: '3.000-8.000 MT/mês',
       priceNote: 'Conforme modalidade e carga horária',
       buttonText: 'Agendar Consulta'
@@ -246,9 +246,9 @@ const ServiceDetail = () => {
       title: 'Consultoria Profissional e Criativa',
       subtitle: 'Desenvolve sua Carreira com Excelência',
       description: 'Desenvolvemos sua carreira profissional com estratégias personalizadas, desde currículos até personal branding. Nossa consultoria combina expertise em recursos humanos, marketing pessoal e estratégia de carreira para posicioná-lo como profissional de destaque.',
-      
+
       whatWeDo: 'Oferecemos serviços completos de consultoria profissional, incluindo desenvolvimento de currículos impressionantes, cartas de motivação persuasivas, preparação para entrevistas de emprego, optimização de perfil LinkedIn, e criação de estratégias de personal branding. Ajudamos profissionais a destacarem-se no mercado de trabalho competitivo.',
-      
+
       whatWeHaveDone: [
         {
           title: 'Criação de Personal Branding',
@@ -265,7 +265,7 @@ const ServiceDetail = () => {
           description: 'Coaching intensivo para entrevistas com organizações internacionais'
         }
       ],
-      
+
       howWeDoIt: [
         {
           step: '01',
@@ -292,7 +292,7 @@ const ServiceDetail = () => {
           description: 'Otimizamos continuamente sua presença profissional e oferecemos suporte contínuo para manter seu posicionamento competitivo.'
         }
       ],
-      
+
       methods: [
         {
           icon: FileText,
@@ -315,7 +315,7 @@ const ServiceDetail = () => {
           description: 'Maximizamos sua presença online através de LinkedIn optimizado e materiais digitais profissionais.'
         }
       ],
-      
+
       howToObtain: {
         steps: [
           'Contacte-nos para consulta inicial gratuita',
@@ -331,7 +331,7 @@ const ServiceDetail = () => {
           'Disponibilidade para sessões de consultoria'
         ]
       },
-      
+
       features: [
         'Desenvolvimento de Currículos',
         'Cartas de Motivação',
@@ -340,7 +340,7 @@ const ServiceDetail = () => {
         'LinkedIn Optimization',
         'Planos de Carreira'
       ],
-      
+
       price: '2.500-6.000 MT',
       priceNote: 'Pacotes personalizados disponíveis',
       buttonText: 'Explorar Serviços'
@@ -352,10 +352,20 @@ const ServiceDetail = () => {
   if (!service) {
     return (
       <div className="bg-black min-h-screen pt-24 flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold mb-4">Serviço não encontrado</h1>
-          <Link to="/servicos" className="btn-primary">Voltar aos Serviços</Link>
-        </div>
+        <motion.div
+          className="text-center"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="glass rounded-2xl p-12 max-w-md mx-auto gold-border">
+            <h1 className="text-4xl font-bold mb-4 gradient-text font-montserrat">Serviço não encontrado</h1>
+            <p className="text-white/70 mb-6 font-poppins">O serviço que você procura não existe ou foi removido.</p>
+            <Link to="/servicos" className="btn-primary inline-flex items-center gap-2 font-poppins">
+              Voltar aos Serviços
+            </Link>
+          </div>
+        </motion.div>
       </div>
     )
   }
@@ -365,31 +375,46 @@ const ServiceDetail = () => {
   return (
     <div className="bg-black min-h-screen pt-24 pb-16">
       {/* Header */}
-      <section className="py-20 bg-gradient-to-br from-black via-black/90 to-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden border-b border-white/10">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `
+              linear-gradient(rgba(255,215,0,0.2) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255,215,0,0.2) 1px, transparent 1px)
+            `,
+            backgroundSize: '50px 50px'
+          }}></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <Link to="/servicos" className="inline-flex items-center gap-2 text-white/70 hover:text-yellow-400 transition-colors duration-300 mb-8">
+            <Link to="/servicos" className="inline-flex items-center gap-2 text-white/70 hover:text-yellow-400 transition-colors duration-300 mb-8 font-poppins">
               <ArrowLeft className="w-5 h-5" />
-              Voltar aos Serviços
+              <span>Voltar aos Serviços</span>
             </Link>
-            
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-20 h-20 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center gold-shadow">
-                <Icon className="w-10 h-10 text-black" />
-              </div>
+
+            <div className="flex items-center gap-6 mb-6">
+              <motion.div
+                className="w-24 h-24 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center gold-shadow flex-shrink-0"
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.6 }}
+              >
+                <Icon className="w-12 h-12 text-black" />
+              </motion.div>
               <div>
-                <h1 className="text-4xl md:text-6xl font-bold text-white mb-2 font-montserrat">
+                <h1 className="text-4xl md:text-6xl font-bold text-white mb-3 font-montserrat leading-tight">
                   {service.title}
                 </h1>
-                <p className="text-2xl gradient-text font-semibold font-poppins">{service.subtitle}</p>
+                <p className="text-2xl md:text-3xl gradient-text font-semibold font-poppins">{service.subtitle}</p>
               </div>
             </div>
-            
-            <p className="text-xl text-white/80 max-w-4xl leading-relaxed font-poppins">
+
+            <p className="text-xl md:text-2xl text-white/80 max-w-4xl leading-relaxed font-poppins">
               {service.description}
             </p>
           </motion.div>
@@ -397,18 +422,19 @@ const ServiceDetail = () => {
       </section>
 
       {/* O Que Fazemos */}
-      <section className="py-20 bg-black/30">
+      <section className="py-20 bg-black/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
+            className="glass rounded-2xl p-8 md:p-12 gold-border"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-montserrat">
               O Que <span className="gradient-text">Fazemos</span>
             </h2>
-            <p className="text-xl text-white/80 leading-relaxed max-w-4xl font-poppins">
+            <p className="text-xl md:text-2xl text-white/80 leading-relaxed max-w-4xl font-poppins">
               {service.whatWeDo}
             </p>
           </motion.div>
@@ -416,19 +442,19 @@ const ServiceDetail = () => {
       </section>
 
       {/* O Que Já Fizemos */}
-      <section className="py-20 bg-black">
+      <section className="py-20 bg-black/30 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mb-16"
+            className="mb-16 text-center"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-montserrat">
               O Que Já <span className="gradient-text">Fizemos</span>
             </h2>
-            <p className="text-xl text-white/70 max-w-3xl">
+            <p className="text-xl text-white/70 max-w-3xl mx-auto font-poppins">
               Casos reais de sucesso e resultados comprovados
             </p>
           </motion.div>
@@ -461,19 +487,19 @@ const ServiceDetail = () => {
       </section>
 
       {/* Como Fazemos */}
-      <section className="py-20 bg-black/30">
+      <section className="py-20 bg-black/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mb-16"
+            className="mb-16 text-center"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-montserrat">
               Como <span className="gradient-text">Fazemos</span>
             </h2>
-            <p className="text-xl text-white/70 max-w-3xl">
+            <p className="text-xl text-white/70 max-w-3xl mx-auto font-poppins">
               Nossos processos meticulosamente planeados garantem qualidade em cada etapa
             </p>
           </motion.div>
@@ -504,19 +530,19 @@ const ServiceDetail = () => {
       </section>
 
       {/* Métodos Utilizados */}
-      <section className="py-20 bg-black">
+      <section className="py-20 bg-black/30 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mb-16"
+            className="mb-16 text-center"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-montserrat">
               Métodos <span className="gradient-text">Utilizados</span>
             </h2>
-            <p className="text-xl text-white/70 max-w-3xl">
+            <p className="text-xl text-white/70 max-w-3xl mx-auto font-poppins">
               Tecnologias e metodologias de ponta aplicadas ao seu projecto
             </p>
           </motion.div>
@@ -550,19 +576,19 @@ const ServiceDetail = () => {
       </section>
 
       {/* Como Obter o Serviço */}
-      <section className="py-20 bg-black/30">
+      <section className="py-20 bg-black/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mb-16"
+            className="mb-16 text-center"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-montserrat">
               Como Obter o <span className="gradient-text">Serviço</span>
             </h2>
-            <p className="text-xl text-white/70 max-w-3xl">
+            <p className="text-xl text-white/70 max-w-3xl mx-auto font-poppins">
               Processo simples e transparente para iniciar sua jornada connosco
             </p>
           </motion.div>
